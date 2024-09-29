@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import '../Styles/Login.scss'
 import BgImg from "../assets/login_bg.jpg"
+import GoogleLogo from "../assets/search.png"
 import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
 const Login = () => {
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -72,6 +73,10 @@ const Login = () => {
 
             <div className="btns">
               <button type="submit">Log in </button>
+              <button>
+                <img src={GoogleLogo} alt="" />
+                Login With Google
+              </button>
               <Link to='/SignUp'>Don't have an account? Sign up </Link>
             </div>
 
@@ -82,7 +87,7 @@ const Login = () => {
 
 
       <div className="right">
-      <img src={BgImg} alt="" />
+        <img src={BgImg} alt="" />
 
       </div>
     </div>

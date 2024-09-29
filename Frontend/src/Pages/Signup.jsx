@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../Styles/Signup.scss'
 import BgImg from "../assets/signUp_bg.jpg"
+import GoogleLogo from "../assets/search.png"
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -105,6 +106,10 @@ const SignUp = () => {
 
           <div className="btns">
             <button type="submit">Sign Up</button>
+            <button>
+                <img src={GoogleLogo} alt="" />
+                Signup With Google
+              </button>
             <Link to='/Login'>Already have an account? Login</Link>
           </div>
 

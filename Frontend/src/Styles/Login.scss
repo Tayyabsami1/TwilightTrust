@@ -74,18 +74,27 @@
                     display: flex;
                     margin-top: 30px;
                     align-items: center;
-                    justify-content: space-between;
+                    justify-content: space-around;
+                    gap: 30px;
 
                     // Login /SignUp Button
                     button {
-                        width: 50%;
+                        width: 38%;
                         padding: 10px;
                         background-color: transparent;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        display: flex;
                         color: black;
                         border: 1px solid #F0A8D0;
                         cursor: pointer;
-                        font-size: 18px;
+                        font-size: 16px;
                         transition: all 200ms ease-in;
+                        img{
+                            height: 20px;
+                            width: 20px;
+                        }
 
                         &:hover {
                             background-color: #F0A8D0;
@@ -93,7 +102,7 @@
                     }
 
                     a {
-                        font-size: 16px;
+                        font-size: 13px;
                         transition: all 200ms ease-in;
 
                         &:hover {
