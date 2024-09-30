@@ -5,6 +5,7 @@ import GoogleLogo from "../assets/search.png"
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {Modal,Button} from "antd";
 
 const SignUp = () => {
 
@@ -15,13 +16,24 @@ const SignUp = () => {
     phoneNumber: '',
     email: '',
     password: '',
-    userType: 'Individual' // Default value
+    userType: 'Buyer' // Default value
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +42,45 @@ const SignUp = () => {
     navigate('/');
   };
 
+  const handleGoogleSubmit=(type)=>{
+    setFormData({...formData,userType:type});
+  }
+
   return (
     <div className="SignIn">
+        <Modal
+        title="Signup as"
+        open={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
+        titleStyle={{ color: '#FFC107' }} // Customize title color
+      >
+        <div style={{ textAlign: 'center', margin: '20px 0' }}>
+          <Button
+            type="default"
+            onClick={() => handleGoogleSubmit('Buyer')}
+            style={{
+              backgroundColor: 'transparent', 
+              borderColor: '#F0A8D0', 
+              color: 'white',
+              marginRight: '10px',
+            }}
+          >
+            Buyer
+          </Button>
+          <Button
+            type="default"
+            onClick={() => handleGoogleSubmit('Seller')}
+            style={{
+              backgroundColor: 'transparent', 
+              borderColor: '#F0A8D0', 
+              color: 'white'
+            }}
+          >
+            Seller
+          </Button>
+        </div>
+      </Modal>
       <div className="left">
         <img src={BgImg} alt="" />
       </div>
@@ -106,7 +155,7 @@ const SignUp = () => {
 
           <div className="btns">
             <button type="submit">Sign Up</button>
-            <button>
+            <button onClick={showModal}>
                 <img src={GoogleLogo} alt="" />
                 Signup With Google
               </button>
