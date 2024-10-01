@@ -44,6 +44,7 @@ const SignUp = () => {
 
   const handleGoogleSubmit=(type)=>{
     setFormData({...formData,userType:type});
+    window.open("http://localhost:3000/auth/google/callback","_self");
   }
 
   return (

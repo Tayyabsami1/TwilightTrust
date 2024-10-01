@@ -12,7 +12,9 @@ const userSchema= new Schema({
       },
       phoneNumber: {
         type: String,
-        required: true,
+        required:  function() {
+          return !this.googleId;
+        },
         unique: true,
         minlength: 10,
         maxlength: 15
