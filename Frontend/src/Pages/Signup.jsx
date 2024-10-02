@@ -44,7 +44,7 @@ const SignUp = () => {
 
   const handleGoogleSubmit=(type)=>{
     setFormData({...formData,userType:type});
-    window.open("http://localhost:3000/auth/google/callback","_self");
+    window.open(`http://localhost:3000/auth/google/callback`,"_self");
   }
 
   return (
@@ -156,7 +156,7 @@ const SignUp = () => {
 
           <div className="btns">
             <button type="submit">Sign Up</button>
-            <button onClick={showModal}>
+            <button onClick={handleGoogleSubmit}>
                 <img src={GoogleLogo} alt="" />
                 Signup With Google
               </button>

@@ -6,7 +6,6 @@ const userSchema= new Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
         minlength: 3
       },
@@ -15,7 +14,9 @@ const userSchema= new Schema({
         required:  function() {
           return !this.googleId;
         },
-        unique: true,
+        unique:  function() {
+          return !this.googleId;
+        },
         minlength: 10,
         maxlength: 15
       },
